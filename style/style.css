@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  user-select: none;
+}
+
+a {
+  color: white;
+}
+
+button {
+  outline: none;
+}
+
+header {
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(to right, #38495a, #a0aab2, #38495a);
+  border-image-slice: 1;
+  width: 100%;
+  text-align: center;
+}
+
+.layout {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  background-color: #313940;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.title {
+  color: white;
+  font-size: 2em;
+  line-height: 60px;
+  font-weight: 300;
+}
+
+.btn-container {
+  margin-top: 10px;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn {
+  width: 150px;
+  height: 40px;
+  border-radius: 2px;
+  font-size: 16px;
+  border: 0;
+  outline: none;
+  background-color: #454c53;
+  color: white;
+  transition-duration: 0.5s;
+  font-weight: 300;
+  display: block;
+  pointer-events: all;
+}
+
+.btn-active {
+  background-color: #00b4a4;
+}
+
+.piano {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  margin-top: 84px;
+}
+
+.piano-button {
+  width: 73px;
+  height: 262px;
+  background-color: #dcdddf;
+  border-radius: 0px 0px 9px 9px;
+  transition-duration: 0.3s;
+  color: #a2abb3;
+}
+
+.piano-button:hover {
+  background-color: white;
+}
+
+.piano-button-sharp {
+  display: flex;
+  position: absolute;
+  top: -5px;
+  gap: 26px;
+  pointer-events: none;
+}
+
+.piano-button-sharp .piano-button {
+  position: relative;
+  width: 54px;
+  height: 170px;
+  background-color: #313940;
+  pointer-events: all;
+  border-radius: 0px 0px 9px 9px;
+}
+
+.piano-button-sharp .piano-button::after {
+  content: attr(data-note);
+  position: absolute;
+  font-size: 26px;
+  line-height: 40px;
+  top: -45px;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.piano-button::after {
+  content: attr(data-note);
+  position: relative;
+  bottom: -267px;
+  left: 34px;
+  width: 40px;
+  height: 40px;
+  font-size: 26px;
+  line-height: 40px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.active {
+  background-color: rgb(255, 255, 255);
+  transform: scale(0.96, 0.96);
+  color: #00b4a4;
+}
+
+.piano-button-sharp .letter::after,
+.letter::after {
+  content: attr(data-letter);
+}
+
+.piano-button-sharp .piano-button:nth-of-type(3) {
+  visibility: hidden;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.full-screen {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+footer {
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(to right, #38495a, #a0aab2, #38495a);
+  border-image-slice: 1;
+  width: 100%;
+  margin-top: 50px;
+}
+
+footer .footer-container {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1140px;
+  padding: 0 15px;
+}
+
+.github {
+  position: relative;
+  line-height: 50px;
+  display: block;
+  padding-left: 45px;
+  opacity: 0.7;
+  transition-duration: 0.5s;
+}
+
+.github::before {
+  content: url(../assets/svg/github.svg);
+  position: absolute;
+  top: 6px;
+  left: 0;
+}
+
+.github:hover {
+  opacity: 1;
+}
+
+.rss {
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
+  word-spacing: -10px;
+  position: relative;
+  padding-right: 25px;
+  font-weight: 800;
+}
+
+.rss-year{
+  position: absolute;
+  font-size: 21px;
+  transition: 0.3s;
+  letter-spacing: -2px;
+  top: 8px;
+  color: #CBD5DE;
+}
+
+.rss:hover span{
+  letter-spacing: 0.01rem;
+}
+
+.rss::before {
+  content: url(../assets/svg/rss.svg);
+}
+
+.full-screen {
+  background-image: url(../assets/svg/fullscreen-open.svg);
+  background-position: center;
+  background-size: cover;
+  border: none;
+  transition-duration: 0.5s;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+:-webkit-full-screen .full-screen {
+  background-image: url(../assets/svg/fullscreen-exit.svg);
+}
+
+@media screen and (max-width: 768px){
+
+  main{
+    position: unset;
+  }
+
+}
